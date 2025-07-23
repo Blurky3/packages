@@ -708,6 +708,16 @@ class Camera
         CaptureRequest.SCALER_CROP_REGION,
         previewRequestBuilder.get(CaptureRequest.SCALER_CROP_REGION));
 
+    //DEACTIVATE AUTO EXPOSURE
+    stillBuilder.set(
+      CaptureRequest.CONTROL_AE_MODE,
+      CaptureRequest.CONTROL_AE_MODE_OFF);
+
+    //ENFORCE SHUTTER SPEED IN NS
+    stillBuilder.set(
+      CaptureRequest.SENSOR_EXPOSURE_TIME,
+      10_000_000L);
+
     // Have all features update the builder.
     updateBuilderSettings(stillBuilder);
 
